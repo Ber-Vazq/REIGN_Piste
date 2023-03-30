@@ -7,8 +7,10 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5.0f;
     public LayerMask groundLayer;
     private Rigidbody2D rb;
+
     public float attackDelay = 0.1f; // time between attacks
     private bool canAttack = true;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = movement;
         if (Input.GetButtonDown("Attack")&& canAttack)
         {
-                
+                canAttack = false;
+                StartCoroutine(ResetAttack());
+                animator.SetTrigger("Attack");
+                Collider2D[] enemy = Physics2D.OverlapCircleAll(transform.position, attackRange, LayerMask.GetMask("Enemy"));
         }
     }
 }
