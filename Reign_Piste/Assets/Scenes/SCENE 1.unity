@@ -253,7 +253,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.532773}
+  m_Offset: {x: 0, y: -2.5269845}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -264,7 +264,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.9, y: 0.63455415}
+  m_Size: {x: 9.9, y: 0.64613104}
   m_EdgeRadius: 0
 --- !u!1 &389396071
 GameObject:
@@ -345,7 +345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389396071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.84, y: -3.33, z: 0}
+  m_LocalPosition: {x: 5.84, y: -3.3, z: 0}
   m_LocalScale: {x: 1.625, y: 1.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -368,7 +368,17 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.48860693, y: 0.5503584}
+  - {x: 0.5142399, y: 0.5576477}
+  - {x: 0.5147855, y: 0.5576271}
+  - {x: 0.52258515, y: 0.5573337}
+  - {x: 0.523468, y: 0.5573005}
+  - {x: 0.51492375, y: 0.55556494}
+  - {x: 0.51056206, y: 0.555933}
+  - {x: 0.49237686, y: 0.55522835}
+  - {x: 0.49169317, y: 0.5531457}
+  - {x: 0.49171335, y: 0.54967433}
+  - {x: 0.49160832, y: 0.5244783}
+  - {x: 0.4914038, y: 0.5070419}
   - {x: 0.49119222, y: 0.2685587}
   - {x: 0.49172336, y: 0.21067321}
   - {x: 0.42376718, y: 0.21171898}
@@ -384,14 +394,19 @@ EdgeCollider2D:
   - {x: 0.21074948, y: -0.00301674}
   - {x: 0.20970188, y: -0.069933236}
   - {x: 0.2851088, y: -0.068847984}
-  - {x: 0.4078816, y: -0.070903}
-  - {x: 0.40987876, y: -0.42947307}
-  - {x: 0.7842035, y: -0.42915136}
-  - {x: 0.7862855, y: -0.13548464}
-  - {x: 0.9078842, y: -0.0062422454}
+  - {x: 0.4106261, y: -0.06811574}
+  - {x: 0.40987876, y: -0.42111143}
+  - {x: 0.7842035, y: -0.42078942}
+  - {x: 0.7835413, y: -0.0044828653}
+  - {x: 0.9078842, y: -0.0034549832}
   - {x: 0.90752476, y: 0.07633358}
-  - {x: 0.69614154, y: 0.5550611}
-  - {x: 0.48423764, y: 0.5546923}
+  - {x: 0.84297955, y: 0.07523465}
+  - {x: 0.84209895, y: 0.14367464}
+  - {x: 0.774278, y: 0.14233205}
+  - {x: 0.7714117, y: 0.241662}
+  - {x: 0.69838434, y: 0.24248916}
+  - {x: 0.6988861, y: 0.5522738}
+  - {x: 0.51442665, y: 0.5546921}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -404,7 +419,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389396071}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -578,6 +593,7 @@ GameObject:
   - component: {fileID: 1890122273}
   - component: {fileID: 1890122272}
   - component: {fileID: 1890122274}
+  - component: {fileID: 1890122275}
   m_Layer: 0
   m_Name: basic_fencer
   m_TagString: Untagged
@@ -645,9 +661,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890122269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.2506, y: -3.28, z: 0}
+  m_LocalPosition: {x: -5.92, y: -3.32, z: 0}
   m_LocalScale: {x: 1.6255, y: 1.6, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1445623883}
   m_RootOrder: 0
@@ -715,7 +731,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890122269}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -748,3 +764,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1890122275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890122269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b55e39f7887443ad9e01ff295dc927c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
