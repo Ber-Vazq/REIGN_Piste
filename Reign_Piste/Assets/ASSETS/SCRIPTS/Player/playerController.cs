@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5.0f;
     public LayerMask groundLayer;
     private Rigidbody2D rb;
-
+    public float attackDelay = 0.1f; // time between attacks
+    private bool canAttack = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +23,9 @@ public class PlayerMovement : MonoBehaviour
         // Move the player horizontally
         Vector2 movement = new Vector2(horizontalInput * speed, rb.velocity.y);
         rb.velocity = movement;
+        if (Input.GetButtonDown("Attack")&& canAttack)
+        {
+                
+        }
     }
 }
