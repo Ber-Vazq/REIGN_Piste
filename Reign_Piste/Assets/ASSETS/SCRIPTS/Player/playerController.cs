@@ -45,7 +45,7 @@ public class playerController : MonoBehaviour
         //haha if you're looking at the changelog this is about to change so much
         //just found better methods and thought about better things.
        moveInput = Input.GetAxis("Horizontal"); //gets input from player
-       rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+       rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         // Move the player horizontally
         
         if (isAttacking) //check for an attack and start timer
@@ -73,7 +73,7 @@ public class playerController : MonoBehaviour
         //whenever the attack button is pressed, hopefully this works.
         anim.SetBool("isAttacking", isAttacking);
 
-        if (healht.currentHealth <= 0)
+        if (health.currentHealth <= 0)
         {
             Destroy(gameObject); 
             //just for now, by final show i expect to
