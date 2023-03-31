@@ -29,7 +29,7 @@ public class playerController : MonoBehaviour
         //rigidbody and animator get good thing its not a gacha game, hah theres an idea for monetization
 
         hitCollider = transform.Find("HitCollider").GetComponent<Collider2D>();
-        hitCollider.enabled = false
+        hitCollider.enabled = false;
         //this just looks for the collider placed at the end of the weapon in order to be able to 
         //register the attacks
 
@@ -85,7 +85,8 @@ public class playerController : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Health enemyHealth = collision.GetComponent<Health>();
-            enemyHealth.TakeDamege(attackDamage);//to register hits on enemy, 
+            enemyHealth.TakeDamage(attackDamage);//to register hits on enemy
+            //thats embarrasing you didn't see that
         }
     }
 }
