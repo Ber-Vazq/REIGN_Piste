@@ -6,10 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     [Header ("Public Variables")]
     public float moveSpeed = 5.0f;
-    public float attackDelay = 0.1f;
+    public float attackDelay;
     public int attackDamage = 1;
     public int maxHealth = 1;
     public bool isAttacking = false;
+    public bool hasAttacked = false;
     public BoxCollider2D hitCollider;
     //these are pretty self explanatory but regardless, its the move speed, 
     //time delay between attacks, damage output, and health also all the public variables
@@ -67,14 +68,19 @@ public class PlayerController : MonoBehaviour
                 attackTimer = 0f;
                 hitCollider.enabled = true;
                 Debug.Log("Text: q was pressed");
+               //starting the attack, setting the timer, and activating the hit collider  
                 GetComponent<Animator>().Play("p_lunge");
-                //starting the attack, setting the timer, and activating the hit collider   
+                hasAttacked = true;
             }
         }
-        //okay so i'm going to try to make it so that the lunge animation plays 
-        //whenever the attack button is pressed, hopefully this works.
+       if (hasAttacked == true && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("p_lunge")&& GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        {
+            GetComponent<Animator>().Play("p_idle");
+        }
 
-/**        if (health.currentHealth <= 0)
+/**        //okay so i'm going to try to make it so that the lunge animation plays 
+        //whenever the attack button is pressed, hopefully this works.
+        if (health.currentHealth <= 0)
         {
             Destroy(gameObject); 
             //just for now, by final show i expect to
