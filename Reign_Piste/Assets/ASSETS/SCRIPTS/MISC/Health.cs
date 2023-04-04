@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 1;
-    public int currentHealth;
+    public float maxHealth = 1f;
+    public float currentHealth;
     //fightcontroller will be made sometime soon(before wednesday for sure)
     private FightController fightController;
     
@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     }
     //yoinked the update method, dont need rn
     //gonna add one for taking damage though
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
