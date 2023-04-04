@@ -8,3 +8,6 @@
  more stuff to come
  
  playable by next wednesday, april 5th 2023
+ 
+ god im so tired teach, works been up my ass but I'm gonna get this done
+ 
