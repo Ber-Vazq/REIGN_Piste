@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,10 +13,11 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking = false;
     public bool hasAttacked = false;
     public BoxCollider2D hitCollider;
+    public TextMeshProUGUI healthDot;
     //these are pretty self explanatory but regardless, its the move speed, 
     //time delay between attacks, damage output, and health also all the public variables
 
-    private Rigidbody2D rb;  
+    private Rigidbody2D rb;
     private Animator anim; //idk why i had it be so long b4 but thats changed
     private Health health;
     private float attackTimer = 0f;
@@ -95,5 +97,10 @@ public class PlayerController : MonoBehaviour
             enemyHealth.TakeDamage(attackDamage);//to register hits on enemy
             //thats embarrasing you didn't see that
         }
+    }
+    void UpdateHealthDot(float currentHealth, float maxHealth){
+        float healthRatio = currentHealth/maxHealth;
+        Color dotColor = Color.Lerp(Color.red, Color.green, healthRatio);
+        healthDot.text =  "<color=#" + ColorUtility.ToHtmlStringRGB(dotColor)+">●</color>"; //setting dot color
     }
 }
