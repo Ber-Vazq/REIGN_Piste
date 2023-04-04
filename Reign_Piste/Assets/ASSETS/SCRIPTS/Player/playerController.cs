@@ -9,14 +9,14 @@ public class PlayerController : MonoBehaviour
     public float attackDelay = 0.1f;
     public int attackDamage = 1;
     public int maxHealth = 1;
+    public bool isAttacking = false;
+    public BoxCollider2D hitCollider;
     //these are pretty self explanatory but regardless, its the move speed, 
     //time delay between attacks, damage output, and health also all the public variables
 
     private Rigidbody2D rb;  
     private Animator anim; //idk why i had it be so long b4 but thats changed
-    private Collider2D hitCollider;
     private Health health;
-    private bool isAttacking = false;
     private float attackTimer = 0f;
     private float moveInput;
     //okay cool so this is the characteristics of the player and all that, colliders, animations, and health
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         //rigidbody and animator get good thing its not a gacha game, hah theres an idea for monetization
 
-        hitCollider = transform.Find("HitCollider").GetComponent<Collider2D>();
+        //hitCollider = transform.Find("hitCollider").GetComponent<BoxCollider2D>(); guess i didnt need this line
         hitCollider.enabled = false;
         //this just looks for the collider placed at the end of the weapon in order to be able to 
         //register the attacks
@@ -66,19 +66,20 @@ public class PlayerController : MonoBehaviour
                 isAttacking = true;
                 attackTimer = 0f;
                 hitCollider.enabled = true;
+                Debug.Log("Text: q was pressed");
+                GetComponent<Animator>().Play("p_lunge");
                 //starting the attack, setting the timer, and activating the hit collider   
             }
         }
         //okay so i'm going to try to make it so that the lunge animation plays 
         //whenever the attack button is pressed, hopefully this works.
-        anim.SetBool("isAttacking", isAttacking);
 
-        if (health.currentHealth <= 0)
+/**        if (health.currentHealth <= 0)
         {
             Destroy(gameObject); 
             //just for now, by final show i expect to
             // have a little slump animation thing that will play instead
-        }
+        } **/
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
