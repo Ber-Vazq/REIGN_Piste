@@ -574,12 +574,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   attackDelay: 0.5
-  attackRange: 1
+  attackRange: 100
   attackPoint: {fileID: 1979541720}
   attackDamage: 1
   attackLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2147483647
   maxHealth: 1
   enemyScoreTxt: {fileID: 1132127777}
   enemyHealthDot: {fileID: 454248922}
