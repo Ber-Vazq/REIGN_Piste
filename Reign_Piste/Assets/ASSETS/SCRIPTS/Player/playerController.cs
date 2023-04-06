@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerController : MonoBehaviour
+public class playerController : MonoBehaviour
 {
     [Header ("Public Variables")]
     public float moveSpeed = 5.0f;
