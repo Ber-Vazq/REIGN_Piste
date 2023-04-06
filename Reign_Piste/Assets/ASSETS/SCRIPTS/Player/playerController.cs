@@ -101,6 +101,6 @@ public class PlayerController : MonoBehaviour
     void UpdateHealthDot(float currentHealth, float maxHealth){
         float healthRatio = currentHealth/maxHealth;
         Color dotColor = Color.Lerp(Color.red, Color.green, healthRatio);
-        healthDot.text =  "<color=#" + ColorUtility.ToHtmlStringRGB(dotColor)+">●</color>"; //setting dot color
+        healthDot.text =  "<color=#" + ColorUtility.ToHtmlStringRGB(dotColor)+">.</color>"; //setting dot color
     }
 }

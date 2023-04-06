@@ -49,7 +49,6 @@ public class EnemyAI : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject, 0.1f);
-            return;
         }
         if (isAttacking)
         {
@@ -64,9 +63,11 @@ public class EnemyAI : MonoBehaviour
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, attackLayers);
             if(attackPoint != null){
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    enemy.GetComponent<Health>().TakeDamage(attackDamage);   
+                foreach (Collider2D enemy in hitEnemies){
+                if (enemy.CompareTag("Player"))
+                    {
+                        enemy.GetComponent<Health>().TakeDamage(attackDamage);
+                    }   
                 }
             }
             if (hitEnemies.Length > 0)
@@ -81,12 +82,17 @@ public class EnemyAI : MonoBehaviour
         }
         moveInput = Random.Range(-1f,1f);
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        UpdateHealthDot(health.currentHealth,health.maxHealth);
     }
     //TODO: add methods for attacks and collision detection with player
     //added attack in update method
     void UpdateHealthDot(float currentHealth, float maxHealth){
         float healthRatio = currentHealth/maxHealth;
         Color dotColor = Color.Lerp(Color.red, Color.green, healthRatio);
-        enemyHealthDot.text =  "<color=#" + ColorUtility.ToHtmlStringRGB(dotColor)+">●</color>"; //setting dot color
+        if (gameObject.activeSelf == false)//should make it so that when the enemy is destroyed the dot turns red
+        {
+            dotColor = Color.red;   
+        }
+        enemyHealthDot.text =  "<color=#" + ColorUtility.ToHtmlStringRGB(dotColor) + ">.</color>"; //setting dot color
     }
 }
