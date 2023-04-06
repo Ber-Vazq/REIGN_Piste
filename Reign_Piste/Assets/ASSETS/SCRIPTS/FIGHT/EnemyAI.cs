@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     // TODO: add public and private variables
     [Header("Public Variables")]
     public float moveSpeed;
-    public float attackDelay;
+    public float attackDelay = 0.5f;
     public float attackRange = 1f;
     public Transform attackPoint;
     public float attackDamage = 1f;
@@ -16,14 +16,15 @@ public class EnemyAI : MonoBehaviour
     public float maxHealth;
     public TextMeshProUGUI enemyScoreTxt;
     public TextMeshProUGUI enemyHealthDot;
+    public bool isAttacking = false;
+    public bool hasAttacked = false;
+    public BoxCollider2D hitCollider;
 
     private Rigidbody2D rb;
     private Animator anim;
     private Health health;
     private float moveInput;
-    private bool isAttacking = false;
-    private float attackTimer = 0f;
-    private bool hasAttacked = false;
+    private float attackTimer;
     private float currentHealth;
 
     //todo is todone
@@ -31,7 +32,6 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // SOMETHING WILL BE HERE I SWEAR
        // SOMETHING IS BEING PUT HERE
        rb = GetComponent<Rigidbody2D>();
        anim = GetComponent<Animator>();
@@ -43,7 +43,6 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //SOMETHING ELSE WILL BE HERE
         //SOMETHING IS BEING PUT HERE
         transform.Translate(-1 * moveSpeed * Time.deltaTime, 0, 0); //movement, is being updated
         if (currentHealth <= 0)
@@ -70,14 +69,14 @@ public class EnemyAI : MonoBehaviour
                     }   
                 }
             }
-            if (hitEnemies.Length > 0)
+            if (hitEnemies.Length > 0 && isAttacking == true)
             {
-                anim.SetTrigger("attack");
+                anim.Play("e_attack");
                 hasAttacked = true;
             }
-            else if (hasAttacked && anim.GetCurrentAnimatorStateInfo(0).IsName("attack")&& anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f){
+            else if (hasAttacked && anim.GetCurrentAnimatorStateInfo(0).IsName("e_attack")&& anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f){
                 hasAttacked = false;
-                anim.Play("idle");
+                anim.Play("e_idle");
             }
         }
         moveInput = Random.Range(-1f,1f);
@@ -89,10 +88,24 @@ public class EnemyAI : MonoBehaviour
     void UpdateHealthDot(float currentHealth, float maxHealth){
         float healthRatio = currentHealth/maxHealth;
         Color dotColor = Color.Lerp(Color.red, Color.green, healthRatio);
-        if (gameObject.activeSelf == false)//should make it so that when the enemy is destroyed the dot turns red
+        if (gameObject.activeSelf == true)
         {
-            dotColor = Color.red;   
+            dotColor = Color.green;   
+        }
+        else if (gameObject.activeSelf == false)
+        {
+            dotColor = Color.red;
         }
         enemyHealthDot.text =  "<color=#" + ColorUtility.ToHtmlStringRGB(dotColor) + ">.</color>"; //setting dot color
     }
+/**
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Health playerHealth = collision.GetComponent<Health>();
+            playerHealth.TakeDamage(attackDamage);//to register hits on player
+            //thats embarrasing you didn't see that
+        }
+    }**/     
 }

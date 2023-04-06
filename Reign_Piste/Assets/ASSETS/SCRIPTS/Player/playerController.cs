@@ -38,7 +38,8 @@ public class playerController : MonoBehaviour
 
         health = GetComponent<Health>();
         health.currentHealth = maxHealth;
-        //gets players health and sets it to max at start of scene
+        UpdateHealthDot(health.currentHealth,health.maxHealth);
+        //sets players health and sets it to max at start of scene
         //hopefully
     }
 
@@ -71,23 +72,24 @@ public class playerController : MonoBehaviour
                 hitCollider.enabled = true;
                 Debug.Log("Text: q was pressed");
                //starting the attack, setting the timer, and activating the hit collider  
-                GetComponent<Animator>().Play("p_lunge");
+                anim.Play("p_lunge");
                 hasAttacked = true;
             }
         }
-       if (hasAttacked == true && GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("p_lunge")&& GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+       if (hasAttacked == true && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
-            GetComponent<Animator>().Play("p_idle");
+            anim.Play("p_idle");
         }
 
-/**        //okay so i'm going to try to make it so that the lunge animation plays 
+        //okay so i'm going to try to make it so that the lunge animation plays 
         //whenever the attack button is pressed, hopefully this works.
         if (health.currentHealth <= 0)
         {
-            Destroy(gameObject); 
-            //just for now, by final show i expect to
+            anim.Play("p_slump");
             // have a little slump animation thing that will play instead
-        } **/
+            //slump made
+        }
+        UpdateHealthDot(health.currentHealth,health.maxHealth);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -95,10 +97,12 @@ public class playerController : MonoBehaviour
         {
             Health enemyHealth = collision.GetComponent<Health>();
             enemyHealth.TakeDamage(attackDamage);//to register hits on enemy
+            anim.Play("p_win");
             //thats embarrasing you didn't see that
         }
     }
-    void UpdateHealthDot(float currentHealth, float maxHealth){
+    void UpdateHealthDot(float currentHealth, float maxHealth)
+    {
         float healthRatio = currentHealth/maxHealth;
         Color dotColor = Color.Lerp(Color.red, Color.green, healthRatio);
         healthDot.text =  "<color=#" + ColorUtility.ToHtmlStringRGB(dotColor)+">.</color>"; //setting dot color
