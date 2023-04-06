@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
@@ -90,6 +91,12 @@ public class playerController : MonoBehaviour
             //slump made
         }
         UpdateHealthDot(health.currentHealth,health.maxHealth);
+        if (GameObject.FindWithTag("enemy") == null)
+        {
+            anim.Play("p_win");
+            SceneManager.LoadScene(sceneName);
+            Debug.log("we here");   
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -97,7 +104,7 @@ public class playerController : MonoBehaviour
         {
             Health enemyHealth = collision.GetComponent<Health>();
             enemyHealth.TakeDamage(attackDamage);//to register hits on enemy
-            anim.Play("p_win");
+            //anim.Play("p_win"); wasn't working here
             //thats embarrasing you didn't see that
         }
     }
