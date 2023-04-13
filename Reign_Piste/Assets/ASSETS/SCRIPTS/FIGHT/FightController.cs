@@ -5,17 +5,35 @@ using UnityEngine;
 public class FightController : MonoBehaviour
 {
     // TODO: add the public and private variables
-    
+    [Header ("Public Variables")]
+    public TextMeshProUGUI playerScoreText;
+    public TextMeshProUGUI enemyScoreText;
+    public TextMeshProUGUI playerDot;
+    public TextMeshProUGUI enemyDot;
+    public int playerScore;
+    public int enemyScore;
+    public float roundDelay = 2f;
+
+    private int currentRound = 1;
+    private float timeRemaining;
+    private bool isRoundOver;
+    private bool isRoundActive;
+    private bool playerWon;
+    private bool enemyWin;
+    //setting the variables i wrote down in my notes as the ones i think are going to be used 
+    // at the least
     // Start is called before the first frame update
     void Start()
     {
-        //something else will go here
+        timeRemaing = roundTime;
+        UpdateScoreUI();
+        ResetRound();
     }
 
     // Update is called once per frame
     void Update()
     {
-       // something will go here probably
+       timeRemaining
     }
     public void StartRound()
     {
@@ -31,10 +49,12 @@ public class FightController : MonoBehaviour
     }
     private void UpdateTimer()
     {
-        // TODO: add mechanics
+        Timer();
     }
-    private void UpdateScoreText()
+    private void UpdateScoreUI()
     {
-        // TODO: add mechanics
+        playerScoreText.text = "Rounds Won: " + playerScore;
+        enemyScoreText.text = "Rounds Won: " + enemyScore;
     }
 }
+//goign to finish this script to a workable condition tomorrow turning into bed it is 10:26 PM
