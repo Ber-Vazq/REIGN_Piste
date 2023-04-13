@@ -33,7 +33,7 @@ public class FightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       timeRemaining
+       timeRemaining;
     }
     public void StartRound()
     {
