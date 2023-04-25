@@ -1581,6 +1581,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97350d3a3fc6543498363e934b8bcde0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScoreText: {fileID: 959725045}
+  enemyScoreText: {fileID: 1132127777}
+  playerDot: {fileID: 1015982014}
+  enemyDot: {fileID: 454248922}
+  playerScore: 0
+  enemyScore: 0
+  roundDelay: 2
+  player: {fileID: 1890122269}
+  enemy: {fileID: 389396071}
 --- !u!4 &1560561012
 Transform:
   m_ObjectHideFlags: 0

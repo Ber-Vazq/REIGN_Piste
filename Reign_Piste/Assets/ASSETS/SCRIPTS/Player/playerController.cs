@@ -23,6 +23,7 @@ public class playerController : MonoBehaviour
     private Health health;
     private float attackTimer = 0f;
     private float moveInput;
+    private string sceneName;
     //okay cool so this is the characteristics of the player and all that, colliders, animations, and health
     // also the bool for if its attacking, the timer that starts between attacks, and the move input
 
@@ -91,11 +92,11 @@ public class playerController : MonoBehaviour
             //slump made
         }
         UpdateHealthDot(health.currentHealth,health.maxHealth);
-        if (GameObject.FindWithTag("enemy") == null)
+        if (GameObject.FindWithTag("Enemy") == null)
         {
             anim.Play("p_win");
             SceneManager.LoadScene(sceneName);
-            Debug.log("we here");   
+            Debug.Log("we here");   
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
