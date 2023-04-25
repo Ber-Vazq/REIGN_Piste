@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
