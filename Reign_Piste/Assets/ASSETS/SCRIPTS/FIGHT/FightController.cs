@@ -68,7 +68,7 @@ public class FightController : MonoBehaviour
         {
             playerScore++;
         }
-        else
+        else if(enemyWon)
         {
             enemyScore++;
         }
@@ -90,8 +90,8 @@ public class FightController : MonoBehaviour
         timeRemaining = roundTime;
         UpdateTimer();
 
-        player.transform.position = new Vector3(-6.05f,-2.75f,0f);
-        enemy.transform.position = new Vector3(5.71f,-2.75f,0f);
+        player.transform.position = new Vector3(-6f,-5.15f,0f);
+        enemy.transform.position = new Vector3(6f,-5.1f,0f);
 
         currentRound++;
 
@@ -101,7 +101,7 @@ public class FightController : MonoBehaviour
     {
         int seconds = Mathf.FloorToInt(timeRemaining % 30);
         string timeString = string.Format("{0:00}", seconds);
- //       playerDot.text = timeString;
+        playerDot.text = timeString;
 //        enemyDot.text = timeString;
 
         if (timeRemaining <= 0 && !isRoundOver)
@@ -121,8 +121,8 @@ public class FightController : MonoBehaviour
     }
     private void UpdateScoreUI()
     {
-        playerScoreText.text = "Rounds Won: " + playerScore;
-        enemyScoreText.text = "Rounds Won: " + enemyScore;
+        playerScoreText.text = "Rounds Won: " + playerScore.ToString();
+        enemyScoreText.text = "Rounds Won: " + enemyScore.ToString();
     }
 }
 //goign to finish this script to a workable condition tomorrow turning into bed it is 10:26 PM

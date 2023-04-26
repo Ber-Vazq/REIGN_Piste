@@ -1587,7 +1587,7 @@ MonoBehaviour:
   enemyDot: {fileID: 454248922}
   playerScore: 0
   enemyScore: 0
-  roundDelay: 2
+  roundDelay: 5
   player: {fileID: 1890122269}
   enemy: {fileID: 389396071}
 --- !u!4 &1560561012
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  attackDelay: 0
+  attackDelay: 0.2
   attackDamage: 1
   maxHealth: 1
   isAttacking: 0

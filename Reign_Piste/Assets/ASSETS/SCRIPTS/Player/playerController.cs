@@ -95,7 +95,7 @@ public class playerController : MonoBehaviour
         if (GameObject.FindWithTag("Enemy") == null)
         {
             anim.Play("p_win");
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene("SCENE 1");
             Debug.Log("we here");   
         }
     }
