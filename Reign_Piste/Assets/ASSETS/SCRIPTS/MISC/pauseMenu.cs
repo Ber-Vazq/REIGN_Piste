@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
 {
-    public GameObject menu;
+    public GameObject pMenu;
 
     private bool isPaused = false;
 
@@ -24,17 +24,18 @@ public class pauseMenu : MonoBehaviour
             }  
         }
     }
+    
     public void Pause()
     {
         Time.timeScale = 0;
-        pauseMenu.SetActive(true);
+        pMenu.SetActive(true);
         isPaused = true;
         Debug.Log("Button was clicked: " + gameObject.name);
     }
     public void Resume()
     {
         Time.timeScale = 1;
-        pauseMenu.SetActive(false);
+        pMenu.SetActive(false);
         isPaused = false;
         Debug.Log("Button was clicked: " + gameObject.name);
     }
