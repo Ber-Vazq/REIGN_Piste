@@ -1,7 +1,7 @@
 # REIGN_Piste
  Final Project for gamedev
 
-please download the build 0.5 update. 
+please download the REIGN_Piste.zip. 
 
 after you should be able to press the Reign_Piste application file type, it'll bring up a prompt with windows defender (or not depends on you)
 
