@@ -1,22 +1,15 @@
 # REIGN_Piste
  Final Project for gamedev
 
+please download the build 0.5 update. 
 
+after you should be able to press the Reign_Piste application file type, it'll bring up a prompt with windows defender (or not depends on you)
 
-*********** to download you have to download the monobleedingedge zip and the unityplayer zip and then drag and drop both onto your desktop ************
-i have no clue why thats the only way i've found that works but it is. THE GAME DOES RUN
+then press run anyways, and you should be able to run after pressing the Reign Piste application
 
+the icon should be the basic fencer.
 
+BUGS
 
-
-
- code will be updated and pushed today 3/7/2023
- - 2 changelogs added. more to come later today
- whoops forgot to update this, uh some stuff got done. 
- 
- more stuff to come
- 
- playable by next wednesday, april 5th 2023
- 
- god im so tired teach, works been up my ass but I'm gonna get this done april 4th
+there is a chance that upon entering the game scene where the characters don't move. you just have to press the pause button then resume and it'll work fine.
  
