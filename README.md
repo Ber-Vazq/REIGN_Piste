@@ -1,11 +1,11 @@
 # REIGN_Piste
  Final Project for gamedev
 
-please download the Reign_Piste.zip. 
+please download the Reign_Piste.zip.
 
 after you should be able to press the Reign_Piste application file type, it'll bring up a prompt with windows defender (or not depends on you)
 
-then press run anyways, and you should be able to run after pressing the Reign Piste application
+then press run anyways/extract, and you should be able to run after pressing the Reign Piste application
 
 the icon should be the basic fencer.
 
